@@ -1453,6 +1453,13 @@ void Sonar_update() {
       tinygps_query();
     }
 }
+#elif defined(MB1200)
+inline void Sonar_init() {
+  pinMode(A2,INPUT); // read analog sonar reading on analog pin A2
+}
+inline void Sonar_update() {
+  sonarAlt = analogRead(A2);
+}
 #else
 inline void Sonar_init() {}
 inline void Sonar_update() {}
